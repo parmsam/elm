@@ -1,0 +1,23 @@
+Package: elm
+Type: Package
+Title: Files Visualizations Tool
+Version: 0.1.0
+Author: Sam Parmar
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Elm is a file visualization tool that allows you to visualize 
+  multiple files on your computer in an interactive way. With Elm, you can 
+  view your files in a variety of different ways, including by size, file 
+  type, and directory tree. Elm makes it easy to gain insights into the files 
+  on your computer, helping you to manage your storage more effectively.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    clipr,
+    dplyr,
+    fs,
+    highcharter,
+    purrr
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

@@ -1,0 +1,63 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# elm
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of elm is to provide a file size exploration tool that allows you to visualize 
+  multiple files on your computer in an interactive way using R. With Elm, you can 
+  view your files in a variety of different ways, including a treemap (by size and file 
+  type), other charts, or a directory tree. Elm makes it easy to gain insights into the files on your computer, helping you to manage your storage more effectively.
+
+## Installation
+
+You can install the development version of elm like so:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("parmsam/elm")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(elm)
+library(dplyr)
+```
+
+You can visualize your folders or files using `elm_treemap_*()` functions:
+```{r, eval = FALSE}
+elm_treemap_dir()
+elm_treemap_file()
+```
+
+Here's an example of how you can copy your folder or file directory to your clipboard:
+```{r}
+elm_clip_dir()
+```
+
+```{r}
+elm_clip_files()
+```
+
+
+
+
+
+

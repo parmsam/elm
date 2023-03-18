@@ -37,26 +37,35 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(elm)
-library(dplyr)
 ```
 
-You can visualize your folders or files using `elm_treemap_*()` functions:
+## Interactive plots
+You can visualize your folders or files as a treemap using the `elm_treemap_*()` functions:
 ```{r, eval = FALSE}
 elm_treemap_folders()
-elm_treemap_file()
+elm_treemap_files()
 ```
 
-Here's an example of how you can copy your folder or file directory to your clipboard:
+## Static plots
+Alternatively, you can set interactive to FALSE to get static versions for some of the plots.
+```{r, out.width = "350px"}
+elm_treemap_folders(interactive = FALSE)
+elm_treemap_files(interactive = FALSE)
+```
+
+## Directory tree
+Here's an example of how you can print and copy the folders in your current directory in a tree-like format using `elm_clip_folders()` (note that the file size isn't included here).
 ```{r}
 elm_clip_folders()
 ```
-
-```{r}
+Or you can use `elm_clip_files()` to print and copy the files in your current directory in a tree-line format (note that the file size isn't included here).
+```{r, eval=FALSE}
 elm_clip_files()
 ```
 
+## Credits 
 
-
-
-
-
+- Hex icon created using the [hexmake
+app](https://connect.thinkr.fr/hexmake/) from
+[ColinFay](https://github.com/ColinFay/hexmake).
+- <a href="https://www.flaticon.com/free-icons/elm" title="elm icons">Elm icons created by Icongeek26 - Flaticon</a>

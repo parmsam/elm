@@ -29,27 +29,43 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(elm)
-library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
+#> Registered S3 method overwritten by 'quantmod':
+#>   method            from
+#>   as.zoo.data.frame zoo
 ```
 
-You can visualize your folders or files using `elm_treemap_*()`
-functions:
+## Interactive plots
+
+You can visualize your folders or files as a treemap using the
+`elm_treemap_*()` functions:
 
 ``` r
 elm_treemap_folders()
-elm_treemap_file()
+elm_treemap_files()
 ```
 
-Here’s an example of how you can copy your folder or file directory to
-your clipboard:
+## Static plots
+
+Alternatively, you can set interactive to FALSE to get static versions
+for some of the plots.
+
+``` r
+elm_treemap_folders(interactive = FALSE)
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="350px" />
+
+``` r
+elm_treemap_files(interactive = FALSE)
+```
+
+<img src="man/figures/README-unnamed-chunk-3-2.png" width="350px" />
+
+## Directory tree
+
+Here’s an example of how you can print and copy the folders in your
+current directory in a tree-like format using `elm_clip_folders()` (note
+that the file size isn’t included here).
 
 ``` r
 elm_clip_folders()
@@ -57,60 +73,25 @@ elm_clip_folders()
 #> ├── R
 #> ├── man
 #> │   └── figures
-#> │       └── hex_old
 #> └── tests
 #>     └── testthat
 #> Tree copied to clipboard.
 #> Files and/or folders in the tree returned.
-#> R                   man                 man/figures         man/figures/hex_old 
-#> tests               tests/testthat
+#> R              man            man/figures    tests          tests/testthat
 ```
+
+Or you can use `elm_clip_files()` to print and copy the files in your
+current directory in a tree-line format (note that the file size isn’t
+included here).
 
 ``` r
 elm_clip_files()
-#> .
-#> ├── DESCRIPTION
-#> ├── NAMESPACE
-#> ├── R
-#> │   ├── elm_clip.R
-#> │   ├── elm_treemap.R
-#> │   ├── get_files.R
-#> │   └── get_tree.R
-#> ├── README.Rmd
-#> ├── README.md
-#> ├── elm.Rproj
-#> ├── man
-#> │   └── figures
-#> │       ├── elm.png
-#> │       ├── hex-elm.hex
-#> │       ├── hex-elm.png
-#> │       ├── hex_old
-#> │       │   ├── elm.png
-#> │       │   ├── hex-elm copy.png
-#> │       │   ├── hex-elm.hex
-#> │       │   ├── hex-elm.hex copy
-#> │       │   ├── hex-elm.png
-#> │       │   ├── logo copy.png
-#> │       │   └── logo.png
-#> │       └── logo.png
-#> └── tests
-#>     ├── testthat
-#>     │   └── test-elm.R
-#>     └── testthat.R
-#> Tree copied to clipboard.
-#> Files and/or folders in the tree returned.
-#> DESCRIPTION                          NAMESPACE                            
-#> R                                    R/elm_clip.R                         
-#> R/elm_treemap.R                      R/get_files.R                        
-#> R/get_tree.R                         README.Rmd                           
-#> README.md                            elm.Rproj                            
-#> man                                  man/figures                          
-#> man/figures/elm.png                  man/figures/hex-elm.hex              
-#> man/figures/hex-elm.png              man/figures/hex_old                  
-#> man/figures/hex_old/elm.png          man/figures/hex_old/hex-elm copy.png 
-#> man/figures/hex_old/hex-elm.hex      man/figures/hex_old/hex-elm.hex copy 
-#> man/figures/hex_old/hex-elm.png      man/figures/hex_old/logo copy.png    
-#> man/figures/hex_old/logo.png         man/figures/logo.png                 
-#> tests                                tests/testthat                       
-#> tests/testthat/test-elm.R            tests/testthat.R
 ```
+
+## Credits
+
+- Hex icon created using the [hexmake
+  app](https://connect.thinkr.fr/hexmake/) from
+  [ColinFay](https://github.com/ColinFay/hexmake).
+- <a href="https://www.flaticon.com/free-icons/elm" title="elm icons">Elm
+  icons created by Icongeek26 - Flaticon</a>

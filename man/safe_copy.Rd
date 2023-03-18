@@ -18,5 +18,7 @@ The function does not return any value.
 Copy tree to clipboard and print to console.
 }
 \examples{
+\dontrun{
 safe_copy(write_tree(get_tree()))
+}
 }

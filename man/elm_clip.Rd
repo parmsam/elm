@@ -9,6 +9,8 @@ elm_clip(path = ".", dir_only = FALSE, ...)
 \arguments{
 \item{path}{the path to search}
 
+\item{dir_only}{logical indicating whether to return only directories or both files and directories}
+
 \item{...}{additional arguments passed to `elm_clip`}
 }
 \value{

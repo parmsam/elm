@@ -16,5 +16,7 @@ A character vector representing the file/folder tree.
 Write a file/folder tree to character vector.
 }
 \examples{
+\dontrun{
 write_tree(get_tree())
+}
 }

@@ -8,7 +8,9 @@
 #' @importFrom clipr write_clip
 #'
 #' @examples
+#' \dontrun{
 #' safe_copy(write_tree(get_tree()))
+#' }
 safe_copy <- function(tree, prefix = "\t\t") {
   tree <- paste0(prefix, tree)
   message("Tree copied to clipboard.")
@@ -21,11 +23,14 @@ safe_copy <- function(tree, prefix = "\t\t") {
 #' @param tree A character vector representing the file/folder tree to be written.
 #'
 #' @return A character vector representing the file/folder tree.
+#' @importFrom utils capture.output
 #'
 #' @examples
+#' \dontrun{
 #' write_tree(get_tree())
+#' }
 write_tree <- function(tree) {
-  capture.output(tree)
+  utils::capture.output(tree)
 }
 
 #' Get the file/folder tree of a given path.
@@ -39,7 +44,9 @@ write_tree <- function(tree) {
 #' @importFrom fs dir_tree
 #'
 #' @examples
+#' \dontrun{
 #' get_tree()
+#' }
 get_tree <- function(path = ".",
                      dir_only = FALSE,
                      hidden = FALSE) {

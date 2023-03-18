@@ -20,5 +20,7 @@ A character vector representing the file/folder tree.
 Get the file/folder tree of a given path.
 }
 \examples{
+\dontrun{
 get_tree()
+}
 }

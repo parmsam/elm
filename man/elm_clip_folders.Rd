@@ -10,8 +10,6 @@ elm_clip_folders(path = ".", ...)
 \item{path}{the path to search}
 
 \item{...}{additional arguments passed to `get_tree`}
-
-\item{dir_only}{logical indicating whether to return only directories or both files and directories}
 }
 \value{
 nothing, copies the file tree to the clipboard

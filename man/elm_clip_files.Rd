@@ -10,8 +10,6 @@ elm_clip_files(path = ".", ...)
 \item{path}{the path to search}
 
 \item{...}{additional arguments passed to `fs::dir_tree`}
-
-\item{dir_only}{logical indicating whether to return only directories or both files and directories}
 }
 \value{
 a tree structure of files and directories

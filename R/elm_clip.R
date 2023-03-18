@@ -1,9 +1,9 @@
-elm_clip_files <- function(path = ".") {
-  elm_clip(path = ".", dir_only = FALSE)
+elm_clip_files <- function(path = ".", ...) {
+  elm_clip(path = ".", dir_only = FALSE, ...)
 }
 
-elm_clip_dir <- function(path = ".") {
-  elm_clip(path = ".", dir_only = TRUE)
+elm_clip_folders <- function(path = ".", ...) {
+  elm_clip(path = ".", dir_only = TRUE, ...)
 }
 
 elm_clip <- function(path = ".", dir_only = FALSE, ...) {
@@ -11,3 +11,4 @@ elm_clip <- function(path = ".", dir_only = FALSE, ...) {
   safe_copy(write_tree(tree))
   return(tree)
 }
+

@@ -3,7 +3,7 @@ Type: Package
 Title: Files Visualizations Tool
 Version: 0.1.0
 Author: Sam Parmar
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: Sam Parmar <myself@somewhere.net>
 Description: Elm is a file visualization tool that allows you to visualize 
   multiple files on your computer in an interactive way. With Elm, you can 
   view your files in a variety of different ways, including by size, file 

@@ -13,15 +13,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-# elm
+# elm <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
 <!-- badges: end -->
 
 The goal of elm is to provide a file size exploration tool that allows you to visualize 
-  multiple files on your computer in an interactive way using R. With Elm, you can 
-  view your files in a variety of different ways, including a treemap (by size and file 
-  type), other charts, or a directory tree. Elm makes it easy to gain insights into the files on your computer, helping you to manage your storage more effectively.
+  multiple files on your computer in an interactive way using R. With elm, you can 
+  view your files by size in a variety of different ways, including a treemap (by size and file type), sunburst chart, and a directory tree. Elm makes it easy to gain insights into the files on your computer, helping you to manage your storage more effectively.
 
 ## Installation
 
@@ -43,13 +42,13 @@ library(dplyr)
 
 You can visualize your folders or files using `elm_treemap_*()` functions:
 ```{r, eval = FALSE}
-elm_treemap_dir()
+elm_treemap_folders()
 elm_treemap_file()
 ```
 
 Here's an example of how you can copy your folder or file directory to your clipboard:
 ```{r}
-elm_clip_dir()
+elm_clip_folders()
 ```
 
 ```{r}

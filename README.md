@@ -30,10 +30,18 @@ library(elm)
 #>   as.zoo.data.frame zoo
 ```
 
+## RStudio addins
+
+After installing the package, you will see RStudio addins to generate
+file visualizations for your current working directory.
+
 ## Interactive plots
 
 You can interactively explore your disk usage using
-`elm_sunburst_files()`. Disk usages is displayed in bytes.
+`elm_sunburst_files()`. Disk usages is displayed in bytes. Note that
+plots in this package may be slow to load or fail to load if there are a
+lot of child nodes in the file tree. If that happens, I’d recommend
+changing the working directory or folder path in the path argument.
 
 ``` r
 elm_sunburst_files(path = ".") #recursive look at all files in current path
@@ -73,13 +81,16 @@ via `clipr::write_clip()`.
 elm_clip_folders()
 #> .
 #> ├── R
+#> ├── inst
+#> │   └── rstudio
 #> ├── man
 #> │   └── figures
 #> └── tests
 #>     └── testthat
 #> Tree copied to clipboard.
 #> Files and/or folders in the tree returned.
-#> R              man            man/figures    tests          tests/testthat
+#> R              inst           inst/rstudio   man            man/figures    
+#> tests          tests/testthat
 ```
 
 Or you can use `elm_clip_files()` to print and copy the files in your

@@ -1,0 +1,9 @@
+Name: Starburst plot of files
+Description: Create a starburst plot for files in current working directory.
+Binding: elm_sunburst_files
+Interactive: true
+
+Name: Treemap of files
+Description: Create a treemap for files in current working directory.
+Binding: elm_treemap_files
+Interactive: true

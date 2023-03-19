@@ -39,8 +39,11 @@ devtools::install_github("parmsam/elm")
 library(elm)
 ```
 
+## RStudio addins
+After installing the package, you will see RStudio addins to generate file visualizations for your current working directory. 
+
 ## Interactive plots
-You can interactively explore your disk usage using `elm_sunburst_files()`. Disk usages is displayed in bytes.
+You can interactively explore your disk usage using `elm_sunburst_files()`. Disk usages is displayed in bytes. Note that plots in this package may be slow to load or fail to load if there are a lot of child nodes in the file tree. If that happens, I'd recommend changing the working directory or folder path in the path argument.
 ```{r, eval = FALSE}
 elm_sunburst_files(path = ".") #recursive look at all files in current path
 ```

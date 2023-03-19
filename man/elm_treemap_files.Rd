@@ -19,7 +19,9 @@ elm_treemap_files(path = ".", dir_only = F, interactive = TRUE, ...)
 A treemap of the files in the specified directory.
 }
 \description{
-This function generates a treemap of files in a given directory using the `elm_treemap` function. By default, both files and directories are included, but files can be excluded by setting `dir_only` to TRUE.
+This function generates a treemap of files by size in a given directory using the
+`elm_treemap` function. By default, both files and directories are included,
+but files can be excluded by setting `dir_only` to TRUE.
 }
 \examples{
 elm_treemap_files("~/Documents/")

@@ -4,7 +4,7 @@
 #'
 #' @param path A character string specifying the path to the directory of interest.
 #' @param dir_only A logical value indicating whether to limit results to directories only. Default is FALSE.
-#' @param hidden A logical value indicating whether to include hidden files in the results. Default is FALSE.
+#' @param all A logical value indicating whether to include hidden files in the results. Default is FALSE.
 #' @param ... Additional arguments to be passed to `fs::dir_info()`.
 #'
 #' @return A tibble with file information for the specified path.
@@ -19,7 +19,7 @@
 #' get_files_tibble("~/Documents/")
 get_files_tibble <- function(path = ".",
                              dir_only = FALSE,
-                             hidden = FALSE,
+                             all = FALSE,
                              ...) {
   type = c("any")
   if (dir_only) {
@@ -28,17 +28,18 @@ get_files_tibble <- function(path = ".",
   tree_tbl <-
     fs::dir_info(
       path = path,
-      type = type,
-      all = hidden,
+      # type = type,
+      all = all,
       recurse = T,
       ...
     ) %>%
-    dplyr::mutate(bytes = as.integer(size)) %>%
     dplyr::mutate(split_path = purrr::map(path, ~ fs::path_split(.)[[1]])) %>%
-    dplyr::mutate(file = purrr::map_chr(split_path, tail, 1)) %>%
-    dplyr::mutate(parent = purrr::map(split_path, get_parent_folders)) %>%
+    dplyr::mutate(parent = unlist(purrr::map_chr(split_path, get_parent_folders))) %>%
     dplyr::mutate(has_parent = ifelse(parent == ".", FALSE, TRUE)) %>%
-    dplyr::mutate(size_chr = as.character(rlang::as_bytes(bytes)))
+    dplyr::mutate(file = purrr::map_chr(split_path, tail, 1)) %>%
+    dplyr::mutate(bytes = as.integer(size)) %>%
+    dplyr::mutate(size_chr = as.character(rlang::as_bytes(bytes))) %>%
+    dplyr::mutate(parent = ifelse(parent == ".", "", unlist(parent)))
   return(tree_tbl)
 }
 

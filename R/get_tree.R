@@ -37,7 +37,7 @@ write_tree <- function(tree) {
 #'
 #' @param path A character string representing the path to the folder to be traversed.
 #' @param dir_only A logical value indicating whether to only return directories in the tree.
-#' @param hidden A logical value indicating whether to include hidden files/folders in the tree.
+#' @param all A logical value indicating whether to include hidden files/folders in the tree.
 #'
 #' @return A character vector representing the file/folder tree.
 #'
@@ -49,11 +49,50 @@ write_tree <- function(tree) {
 #' }
 get_tree <- function(path = ".",
                      dir_only = FALSE,
-                     hidden = FALSE) {
+                     all = FALSE) {
   type = c("any")
   if (dir_only) {
     type = c("dir")
   }
-  tree <- fs::dir_tree(path = path, type = type, all = hidden)
+  tree <- fs::dir_tree(path = path, type = type, all = all)
   return(tree)
+}
+
+
+#' Get the data.tree object on files from a given path.
+#'
+#' @param path A character string representing the path to the folder to be traversed.
+#' @param dir_only A logical value indicating whether to only return directories in the tree.
+#' @param all A logical value indicating whether to include hidden files/folders in the tree.
+#' @param ... Additional arguments to be passed to `get_files_tibble()`.
+#' @return A data.tree representing the file/folder tree.
+#'
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select
+#' @importFrom dplyr filter
+#' @importFrom data.tree FromDataFrameNetwork
+#'
+#' @examples
+#' \dontrun{
+#' get_tree()
+#' }
+#' @export
+get_data_tree <- function(path = ".",
+                          dir_only = FALSE,
+                          all = FALSE, ...){
+  df <- get_files_tibble(path = path, dir_only = dir_only, all = all, ...) %>%
+    dplyr::mutate(size = ifelse(type == "directory", 0, size)) %>%
+    dplyr::select(file, parent, size) %>%
+    unique() %>%
+    dplyr::filter(!is.na(size)| parent != "")
+  population <- data.tree::FromDataFrameNetwork(df4)
+  population$Set(size = c(function(self)
+    sum(
+      sapply(self$children,
+             function(child)
+               GetAttribute(child, "size"))
+    )),
+    filterFun = isNotLeaf
+  )
+  population
 }

@@ -4,14 +4,14 @@
 \alias{get_files_tibble}
 \title{Get file information as a tibble}
 \usage{
-get_files_tibble(path = ".", dir_only = FALSE, hidden = FALSE, ...)
+get_files_tibble(path = ".", dir_only = FALSE, all = FALSE, ...)
 }
 \arguments{
 \item{path}{A character string specifying the path to the directory of interest.}
 
 \item{dir_only}{A logical value indicating whether to limit results to directories only. Default is FALSE.}
 
-\item{hidden}{A logical value indicating whether to include hidden files in the results. Default is FALSE.}
+\item{all}{A logical value indicating whether to include hidden files in the results. Default is FALSE.}
 
 \item{...}{Additional arguments to be passed to `fs::dir_info()`.}
 }

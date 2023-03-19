@@ -4,22 +4,27 @@ Title: Files Visualizations Tool
 Version: 0.1.0
 Author: Sam Parmar
 Maintainer: Sam Parmar <myself@somewhere.net>
-Description: Elm is a file visualization tool that allows you to visualize 
-  multiple files on your computer in an interactive way. With Elm, you can 
-  view your files in a variety of different ways, including by size, file 
-  type, and directory tree. Elm makes it easy to gain insights into the files 
+Description: Elm is a disk usage analyzer tool that allows you to visualize 
+  file size on your computer in an interactive way. With elm, you can 
+  view your file sizes in a variety of different ways, including by name, size, 
+  type, and relation. Elm makes it easy to gain insights into the files 
   on your computer, helping you to manage your storage more effectively.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
     clipr,
+    d3r,
+    data.tree,
     dplyr,
     fs,
     highcharter,
+    htmltools,
+    htmlwidgets,
     magrittr,
     purrr,
     rlang,
+    sunburstR,
     treemap,
     utils
 Suggests: 

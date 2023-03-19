@@ -24,5 +24,7 @@ A treemap of the files or directories in the specified directory.
 This function generates a treemap using either the `highcharter` or `treemap` package, depending on the value of the `interactive` parameter.
 }
 \examples{
+\dontrun{
 elm_treemap(get_files_tibble("~/Documents/"))
+}
 }

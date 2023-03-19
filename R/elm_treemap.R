@@ -1,6 +1,8 @@
 #' Create a treemap of files in a directory
 #'
-#' This function generates a treemap of files in a given directory using the `elm_treemap` function. By default, both files and directories are included, but files can be excluded by setting `dir_only` to TRUE.
+#' This function generates a treemap of files by size in a given directory using the
+#' `elm_treemap` function. By default, both files and directories are included,
+#' but files can be excluded by setting `dir_only` to TRUE.
 #'
 #' @param path A character string specifying the path to the directory of interest.
 #' @param dir_only A logical value indicating whether to limit results to directories only. Default is FALSE.
@@ -57,13 +59,16 @@ elm_treemap_folders <- function(path = ".",
 #'
 #' @return A treemap of the files or directories in the specified directory.
 #'
-#' @importFrom highcharter hchart hc_exporting hc_title hc_tooltip hcaes
+#' @importFrom highcharter hchart hc_title hc_tooltip hcaes
 #' @importFrom treemap treemap
 #' @importFrom dplyr mutate
+#' @importFrom highcharter hc_exporting
 #'
 #' @export
 #' @examples
+#' \dontrun{
 #' elm_treemap(get_files_tibble("~/Documents/"))
+#' }
 elm_treemap <- function(files_tibble,
                         title = "Files or folders treemap",
                         interactive = TRUE) {
@@ -84,8 +89,8 @@ elm_treemap <- function(files_tibble,
       highcharter::hc_exporting(enabled = TRUE)
   } else{
     files_tibble %>%
-      mutate(index = paste(file, size_chr, sep = ": ")) %>%
-      treemap(
+      dplyr::mutate(index = paste(file, size_chr, sep = ": ")) %>%
+      treemap::treemap(
         index = c("index"),
         vSize = "bytes",
         vColor = "bytes",

@@ -18,9 +18,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of elm is to provide a file size exploration tool that allows you to visualize 
-  multiple files on your computer in an interactive way using R. With elm, you can 
-  view your files by size in a variety of different ways, including a treemap (by size and file type), sunburst chart, and a directory tree. Elm makes it easy to gain insights into the files on your computer, helping you to manage your storage more effectively.
+Elm is a disk usage analyzer tool that allows you to visualize 
+file size on your computer in an interactive way. With elm, you can 
+view your file sizes in a variety of different ways, including by name, size, 
+type, and relation. Elm makes it easy to gain insights into the files 
+on your computer, helping you to manage your storage more effectively.
 
 ## Installation
 
@@ -31,34 +33,34 @@ You can install the development version of elm like so:
 devtools::install_github("parmsam/elm")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Examples
 
 ```{r example}
 library(elm)
 ```
 
 ## Interactive plots
-You can visualize your folders or files as a treemap using the `elm_treemap_*()` functions:
+You can interactively explore your disk usage using `elm_sunburst_files()`. Disk usages is displayed in bytes.
 ```{r, eval = FALSE}
-elm_treemap_folders()
-elm_treemap_files()
+elm_sunburst_files(path = ".") #recursive look at all files in current path
 ```
-
+Alternatively, you can visualize your folders or files as a treemap using the `elm_treemap_*()` function. By default the `interactive = TRUE` and `path="."`. You can use `?elm_treemap_files()` to learn more. 
+```{r, eval = FALSE}
+elm_treemap_files(path = ".") #recursive look at all files in current path
+```
+<!-- # elm_treemap_folders(path = ".") #same with folders only instead -->
 ## Static plots
-Alternatively, you can set interactive to FALSE to get static versions for some of the plots.
+Alternatively, you can set interactive to FALSE to get static versions for some plots.
 ```{r, out.width = "350px"}
-elm_treemap_folders(interactive = FALSE)
 elm_treemap_files(interactive = FALSE)
 ```
 
-## Directory tree
-Here's an example of how you can print and copy the folders in your current directory in a tree-like format using `elm_clip_folders()` (note that the file size isn't included here).
+## Folders or files tree
+Here's an example of how you can print and copy the folders in your current directory in a tree-like format using `elm_clip_folders()` (note that the file size isn't included here). Note that this is just a wrapper to `fs::dir_tree()` with a capture content and clipboard copy via `clipr::write_clip()`.
 ```{r}
 elm_clip_folders()
 ```
-Or you can use `elm_clip_files()` to print and copy the files in your current directory in a tree-line format (note that the file size isn't included here).
+Or you can use `elm_clip_files()` to print and copy the files in your current directory in a tree-line format (note that the file size isn't included here). Note that this is just a wrapper to `fs::dir_tree()` with a capture content and clipboard copy via `clipr::write_clip()`.
 ```{r, eval=FALSE}
 elm_clip_files()
 ```

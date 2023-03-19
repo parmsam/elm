@@ -71,6 +71,7 @@ get_tree <- function(path = ".",
 #' @importFrom dplyr select
 #' @importFrom dplyr filter
 #' @importFrom data.tree FromDataFrameNetwork
+#' @importFrom data.tree isNotLeaf
 #'
 #' @examples
 #' \dontrun{
@@ -85,14 +86,14 @@ get_data_tree <- function(path = ".",
     dplyr::select(file, parent, size) %>%
     unique() %>%
     dplyr::filter(!is.na(size)| parent != "")
-  population <- data.tree::FromDataFrameNetwork(df4)
+  population <- data.tree::FromDataFrameNetwork(df)
   population$Set(size = c(function(self)
     sum(
       sapply(self$children,
              function(child)
                GetAttribute(child, "size"))
     )),
-    filterFun = isNotLeaf
+    filterFun = data.tree::isNotLeaf
   )
   population
 }

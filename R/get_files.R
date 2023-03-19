@@ -13,6 +13,7 @@
 #' @importFrom dplyr mutate
 #' @importFrom purrr map map_chr
 #' @importFrom rlang as_bytes
+#' @importFrom utils tail
 #'
 #' @export
 #' @examples
@@ -36,7 +37,7 @@ get_files_tibble <- function(path = ".",
     dplyr::mutate(split_path = purrr::map(path, ~ fs::path_split(.)[[1]])) %>%
     dplyr::mutate(parent = unlist(purrr::map_chr(split_path, get_parent_folders))) %>%
     dplyr::mutate(has_parent = ifelse(parent == ".", FALSE, TRUE)) %>%
-    dplyr::mutate(file = purrr::map_chr(split_path, tail, 1)) %>%
+    dplyr::mutate(file = purrr::map_chr(split_path, utils::tail, 1)) %>%
     dplyr::mutate(bytes = as.integer(size)) %>%
     dplyr::mutate(size_chr = as.character(rlang::as_bytes(bytes))) %>%
     dplyr::mutate(parent = ifelse(parent == ".", "", unlist(parent)))

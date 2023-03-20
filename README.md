@@ -109,3 +109,14 @@ elm_clip_files()
   [ColinFay](https://github.com/ColinFay/hexmake).
 - <a href="https://www.flaticon.com/free-icons/elm" title="elm icons">Elm
   icons created by Icongeek26 - Flaticon</a>
+
+## Contributing
+
+Are you interested in learning how you can contribute to this package?
+Head over to the [contributor guide](CONTRIBUTING.md).
+
+## Code of Conduct
+
+Please note that the elm project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.

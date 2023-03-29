@@ -6,8 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-Elm is a disk usage analyzer tool that allows you to visualize files on your computer in an interactive way. With elm, you can view your file
-sizes in a variety of different ways, including by name, size, type, and
+Elm is a disk usage analyzer tool that allows you to visualize files on your computer in an interactive or static way. With elm, you can view your file
+with a variety of different information, including name, size, type, and
 relation. Elm makes it easy to gain insights into the files on your
 computer, helping you to manage your storage more effectively.
 
